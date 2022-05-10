@@ -50,6 +50,7 @@ jobs:
         -DforkCount=1
         -Dcompare-version-with-baselines.skip=false
         -Dmaven.compiler.failOnWarning=true
+        --fail-at-end
         clean verify
        working-directory: eclipse.platform.swt
     - name: Upload Test Results for ${{ matrix.config.name }} / Java-${{ matrix.java }}
