@@ -50,11 +50,11 @@ jobs:
         -DforkCount=1
         -Dcompare-version-with-baselines.skip=false
         -Dmaven.compiler.failOnWarning=true
-        -Dmaven.test.failure.ignore=true
         clean verify
        working-directory: eclipse.platform.swt
     - name: Upload Test Results for ${{ matrix.config.name }} / Java-${{ matrix.java }}
       uses: actions/upload-artifact@v3
+      if: always()
       with:
         name: test-results-${{ matrix.config.native }}-java${{ matrix.java }}
         if-no-files-found: error
